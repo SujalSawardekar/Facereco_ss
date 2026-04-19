@@ -13,3 +13,4 @@ gdown==5.1.0
 flask-cors==5.0.0
 opencv-python==4.10.1.84
 patool==2.3.0
+gunicorn==23.0.0
