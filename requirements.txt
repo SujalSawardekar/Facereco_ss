@@ -11,6 +11,6 @@ dlib==19.24.6; platform_system != "Windows"
 dlib-bin>=19.24.6,<21; platform_system == "Windows"
 gdown==5.1.0
 flask-cors==5.0.0
-opencv-python==4.10.1.84
+opencv-python-headless
 patool==2.3.0
 gunicorn==23.0.0
