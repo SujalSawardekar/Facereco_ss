@@ -1,15 +1,17 @@
-FROM python:3.10-slim
+FROM python:3.10-slim-bookworm
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /app
 
-# Install system dependencies with retries and no-install-recommends to be more resilient
-# Exit code 100 often happens with transient mirror issues
-RUN apt-get update -y && \
+# Using explicitly bookworm and adding --fix-missing to handle mirror sync issues
+RUN apt-get update -y --fix-missing && \
     apt-get install -y --no-install-recommends \
     cmake \
     build-essential \
     libgl1-mesa-glx \
     libglib2.0-0 \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements and install Python dependencies
